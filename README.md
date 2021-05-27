@@ -27,18 +27,18 @@ has_many :orders
 | --------------- | ------------ | ------------------------------ |   
 | name            | string       | null: false                    |
 | description     | text         | null: false                    |
-| category        | string       | null: false                    |
-| status          | string       | null: false                    |
-| cost            | string       | null: false                    |
-| brand           | string       | null: false                    |
-| day             | string       | null: false                    |
-| price           | string       | null: false                    |
+| category_id     | integer      | null: false                    |
+| status_id       | integer      | null: false                    |
+| cost_id         | integer      | null: false                    |
+| brand_id        | integer      | null: false                    |
+| day_id          | integer      | null: false                    |
+| price           | integer      | null: false                    |
 | user            | references   | null: false, foreign_key: true |
 
 ### Association
 
 belongs_to :user
-belongs_to :address
+belongs_to :order
 
 
 
@@ -52,7 +52,7 @@ belongs_to :address
 ### Association
 
 belongs_to :user
-has_one :address
+has_many :items
 
 
 
@@ -66,8 +66,7 @@ has_one :address
 | address              | string      | null: false                    |
 | building             | string      |                                |
 | phone_number         | string      | null: false                    |
-| user                 | references  | null: false, foreign_key: true |
-| item                 | references  | null: false, foreign_key: true |
+
+### Association
 
 belongs_to :order
-belongs_to :item
