@@ -67,7 +67,7 @@ has_one :address
 | address              | string      | null: false                    |
 | building             | string      |                                |
 | phone_number         | string      | null: false                    |
-| order_id             | integer     | null: false                    |
+| order_id             | integer     | null: false, foreign_key: true |
 
 ### Association
 
