@@ -9,8 +9,8 @@ class User < ApplicationRecord
 
 
   with_options presence: true do
-   validates :nickname       
-   validates :birth_day
+  validates :nickname       
+  validates :birth_day
   end
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
@@ -18,15 +18,15 @@ class User < ApplicationRecord
   validates_format_of :password,with: PASSWORD_REGEX
 
   
-  with_options format: { with: /\A[ぁ-んァ-ン一-龥々]/} do
+  with_options format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/} do
   #全角ひらがな，カタカナ，漢字のみ
-    validates :family_name
-    validates :first_name
+  validates :family_name
+  validates :first_name
   end
   
-  with_options format: { with: /\A[ァ-ヶー－]+\z/} do
+  with_options format: { with: /\A[ァ-ヶー]+\z/} do
   #全角カタカナのみ
-    validates :family_name_kana
-    validates :first_name_kana
-    end
+  validates :family_name_kana
+  validates :first_name_kana
+  end
 end
