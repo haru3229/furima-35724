@@ -5,12 +5,12 @@ RSpec.describe User, type: :model do
   end
   describe 'ユーザー新規登録' do
     context '登録できるとき' do
-      it 'family_nameが全角文字であれば登録できること' do
+      it 'family_nameが全角文字であれば登録できる' do
         @user.family_name = 'ぜんかく'
         @user.valid?
         expect(@user).to be_valid
       end
-      it 'first_nameが全角文字であれば登録できること' do
+      it 'first_nameが全角文字であれば登録できる' do
         @user.first_name = 'ぜんかく'
         @user.valid?
         expect(@user).to be_valid
