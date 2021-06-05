@@ -2,12 +2,14 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one :order
 
-  # validates :name,           presence: true
-  # validates :description,    presence: true
-  # validates :category_id,    presence: true
-  # validates :status_id,      presence: true
-  # validates :cost_id,        presence: true
-  # validates :brand_id,       presence: true
-  # validates :day_id,         presence: true
-  # validates :price,          presence: true
+  with_options presence: true do
+   validates :name
+   validates :description
+   validates :category_id
+   validates :status_id
+   validates :cost_id
+   validates :brand_id
+   validates :day_id
+   validates :price
+  end
 end
