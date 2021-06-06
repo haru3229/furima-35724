@@ -11,14 +11,15 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   with_options presence: true do
-   validates :image
-   validates :name
-   validates :description
-   validates :category_id,                           numericality: { other_than: 1 } 
-   validates :status_id,                             numericality: { other_than: 1 } 
-   validates :cost_id,                               numericality: { other_than: 1 } 
-   validates :brand_id,                              numericality: { other_than: 1 } 
-   validates :day_id,                                numericality: { other_than: 1 } 
-   validates :price, format: { with: /\A[0-9]+\z/ }, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
+    validates :image
+    validates :name
+    validates :description
+    validates :category_id,                           numericality: { other_than: 1 }
+    validates :status_id,                             numericality: { other_than: 1 }
+    validates :cost_id,                               numericality: { other_than: 1 }
+    validates :brand_id,                              numericality: { other_than: 1 }
+    validates :day_id,                                numericality: { other_than: 1 }
+    validates :price, format: { with: /\A[0-9]+\z/ },
+                      numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   end
 end
