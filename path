@@ -1,5 +1,4 @@
-rails routes
-                               Prefix Verb   URI Pattern                                                                              Controller#Action
+    Prefix Verb   URI Pattern                                                                              Controller#Action
                      new_user_session GET    /users/sign_in(.:format)                                                                 devise/sessions#new
                          user_session POST   /users/sign_in(.:format)                                                                 devise/sessions#create
                  destroy_user_session DELETE /users/sign_out(.:format)                                                                devise/sessions#destroy
@@ -16,12 +15,7 @@ rails routes
                                       DELETE /users(.:format)                                                                         devise/registrations#destroy
                                       POST   /users(.:format)                                                                         devise/registrations#create
                                  root GET    /                                                                                        items#index
-                                items POST   /items(.:format)                                                                         items#create
-                             new_item GET    /items/new(.:format)                                                                     items#new
-                            edit_item GET    /items/:id/edit(.:format)                                                                items#edit
-                                 item PATCH  /items/:id(.:format)                                                                     items#update
-                                      PUT    /items/:id(.:format)                                                                     items#update
-                                 user GET    /users/:id(.:format)                                                                     users#show
+                                items GET    /items(.:format)                                                                         items#index
         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
            rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
         rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                  action_mailbox/ingresses/sendgrid/inbound_emails#create
