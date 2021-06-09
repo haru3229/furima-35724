@@ -81,6 +81,12 @@ RSpec.describe BuyerOrder, type: :model do
         expect(@buyer_order.errors.full_messages).to include('Phone number is invalid')
       end
 
+      it 'phone_numberが英数混合だと保存できない' do
+        @buyer_order.phone_number = '090-1aaa-22bb'
+        @buyer_order.valid?
+        expect(@buyer_order.errors.full_messages).to include('Phone number is invalid')
+      end
+
       it 'tokenが空だと保存できない' do
         @buyer_order.token = ''
         @buyer_order.valid?
