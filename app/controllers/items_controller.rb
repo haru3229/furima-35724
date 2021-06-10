@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :contributor_confirmation, only: [:edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_item,                  only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!,        only: [:new, :create, :edit, :update]
+  before_action :contributor_confirmation,  only: [:edit, :update, :destroy]
 
   def index
-    @items = Item.all.order('created_at DESC')
+    @items = Item.all.order(created_at: :desc)
   end
 
   def new
@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to item_path
+      redirect_to item_path(@item.id)
     else
       render :edit
     end
@@ -51,6 +51,6 @@ class ItemsController < ApplicationController
   end
 
   def contributor_confirmation
-    redirect_to root_path unless @item.user == current_user
+    redirect_to root_path if @item.user != current_user || @item.order.present?
   end
 end
